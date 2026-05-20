@@ -1,0 +1,51 @@
+.scroll-stack-scroller {
+  position: relative;
+  width: 100%;
+  overflow-x: visible;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto;
+}
+
+.scroll-stack-inner {
+  padding: 4vh 1.5rem 0;
+}
+
+.scroll-stack-card {
+  transform-origin: top center;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /* No padding here — inner content card handles its own padding */
+  padding: 0;
+  min-height: 0;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 0;
+  box-sizing: border-box;
+  position: relative;
+  transition: none;
+}
+
+.scroll-stack-card[style*="opacity: 0"] {
+  pointer-events: none;
+}
+
+/* End spacer — height is set dynamically by JS */
+.scroll-stack-end {
+  width: 100%;
+}
+
+.scroll-stack-card img {
+  will-change: transform;
+  display: block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .scroll-stack-inner {
+    padding: 4vh 1rem 0;
+  }
+}
