@@ -1,5 +1,4 @@
 name = "webrion"
-main = "dist/server/server.js"
 compatibility_date = "2026-05-20"
 
 [assets]
