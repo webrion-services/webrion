@@ -13,7 +13,10 @@ function scrollTo(id: string, e: React.MouseEvent<HTMLAnchorElement>) {
 
 export function Hero() {
   return (
-    <section id="home" className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-32 md:px-12">
+    <section
+      id="home"
+      className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden px-6 pt-32 md:px-12"
+    >
       <PixelHoverGrid
         className="absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_85%)]"
       />
@@ -28,15 +31,8 @@ export function Hero() {
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur"
         >
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-          A modern web development studio · est. 2026
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.5, duration: 0.7 }}
-          className="mb-6 flex items-center gap-4"
-        >
+          {/* FIX: Added "Ahmedabad, India" for local SEO signal in visible text */}
+          Web development studio · Ahmedabad, India · Est. 2026
         </motion.div>
 
         <SplitReveal
@@ -52,7 +48,12 @@ export function Hero() {
           transition={{ delay: 2.4, duration: 0.7 }}
           className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg"
         >
-          Webrion is a modern web development agency specializing in custom websites, ecommerce platforms, SEO-focused business websites, and scalable web applications. We help startups, local businesses, and growing brands build fast, conversion-driven digital experiences using modern technologies like React, TypeScript, and optimized frontend architecture.
+          {/* FIX: Rewritten — shorter, sharper, includes price anchor and location.
+              Original was generic AI-sounding boilerplate. This version is specific,
+              human, and contains the keywords users actually search for. */}
+          We build custom websites, ecommerce stores, and React web apps for Indian startups and
+          global brands — fast, conversion-focused, and starting at ₹14,999. Based in Ahmedabad,
+          we ship like it's our own product.
         </motion.p>
 
         <motion.div

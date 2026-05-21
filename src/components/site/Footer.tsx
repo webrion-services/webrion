@@ -148,7 +148,7 @@ export function Footer() {
             <FooterCol
               title="Work"
               links={["Projects", "Services","FAQ"]}
-              urls={["#projects", "#services","#FAQ"]}
+              urls={["#projects", "#services","#faq"]}
             />
 
             <FooterCol

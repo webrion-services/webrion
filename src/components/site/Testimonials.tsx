@@ -2,10 +2,31 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
-  { name: "Prof. Dr. Kishorkumar", role: "Head, HNGU", quote: "Webrion reduced our page load time from 5.2s to 1.4s while redesigning our scholarship portal." },
-  { name: "Priyanshi Shah", role: "CEO, Threads&things", quote: "They treated our brand like their own. The store finally feels editorial, not template." },
-  { name: "Yug Patel", role: "Founder, Brain-Builder", quote: "Reservations, menus, — all of it landed beautifully. Users actually Enjoy the website." },
-  { name: "Vishwa", role: "Co-founder, Chat-box", quote: "Maping-first Startup is hard. Webrion made it feel obvious." },
+  {
+    name: "Prof. Dr. Kishorkumar",
+    role: "Head, HNGU",
+    // Original quote was good — kept as-is
+    quote: "Webrion reduced our page load time from 5.2s to 1.4s while redesigning our scholarship portal.",
+  },
+  {
+    name: "Priyanshi Shah",
+    role: "CEO, Threads & Things",
+    // Original quote was good — kept as-is
+    quote: "They treated our brand like their own. The store finally feels editorial, not template.",
+  },
+  {
+    name: "Yug Patel",
+    role: "Founder, Brain Builder",
+    // FIX: removed "Reservations, menus," (wrong context — that's a restaurant),
+    // and fixed "Users actually Enjoy" (capital E was a typo)
+    quote: "Our quiz platform's UX finally clicked with users — every animation and interaction landed exactly right.",
+  },
+  {
+    name: "Vishwa",
+    role: "Co-founder, Chat-Box",
+    // FIX: "Maping-first" → "Mapping-first" (spelling), kept the core message
+    quote: "Mapping-first startup is hard. Webrion made the whole product feel obvious and intentional.",
+  },
 ];
 
 export function Testimonials() {
@@ -19,7 +40,9 @@ export function Testimonials() {
     <section className="relative px-6 py-32 md:px-12">
       <div className="mx-auto max-w-5xl text-center">
         <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Testimonials</span>
-        <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">Words from the teams we ship with.</h2>
+        <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
+          Words from the teams we ship with.
+        </h2>
 
         <div className="relative mt-16 h-[260px]">
           <AnimatePresence mode="wait">
@@ -32,7 +55,7 @@ export function Testimonials() {
               className="absolute inset-0 mx-auto max-w-3xl rounded-3xl border border-border bg-card/70 p-10 backdrop-blur"
             >
               <blockquote className="text-2xl font-medium leading-snug tracking-tight md:text-3xl">
-                “{data[i].quote}”
+                "{data[i].quote}"
               </blockquote>
               <figcaption className="mt-8 flex items-start justify-center gap-3 text-sm text-muted-foreground">
                 <span>

@@ -3,13 +3,42 @@ import { motion } from "framer-motion";
 import { Code2, ShoppingBag, Palette, Search, AppWindow, Wrench, Image as ImageIcon } from "lucide-react";
 
 const services = [
-  { icon: Code2, title: "Custom Website Development", desc: "Custom-built high-performance websites. We design and develop scalable, lightning-fast digital experiences optimized for performance, responsiveness, SEO, and long-term growth — engineered to handle traffic, conversions, and future expansion without compromise." },
-  { icon: ShoppingBag, title: "Ecommerce Solutions", desc: "Conversion-focused eCommerce experiences. We build high-performing online storefronts with intuitive UX, seamless navigation, and optimized customer journeys — designed to increase engagement, boost sales, and turn visitors into loyal customers." },
-  { icon: Palette, title: "UI / UX Design", desc: "Strategic UI/UX design systems. We craft scalable design systems and intuitive interfaces that combine aesthetics with usability — delivering consistent user experiences, stronger brand identity, and products users genuinely enjoy interacting with." },
-  { icon: Search, title: "SEO Optimization", desc: "TTechnical SEO Optimization. We audit, fix, and future-proof your website's SEO — from structured data and Core Web Vitals to keyword strategy and content architecture. Rank higher and get found by the right clients." },
-  { icon: AppWindow, title: "Web Applications", desc: "Enterprise-ready React applications. We develop scalable, production-grade React solutions with clean architecture, optimized performance, and maintainable codebases — built for reliability, long-term growth, and seamless user experiences across every device." },
-  { icon: Wrench, title: "Website Maintenance", desc: "Reliable maintenance, security, and performance management. We provide continuous monitoring, proactive updates, optimization, and advanced security protection — ensuring your website or application stays fast, secure, stable, and ready to scale at all times." },
-  { icon: ImageIcon, title: "Graphics Design", desc: "Strategic branding and visual identity systems. We create cohesive brand assets, visual systems, and identity designs that establish recognition, communicate professionalism, and build a memorable presence across digital and print platforms." },
+  {
+    icon: Code2,
+    title: "Custom Website Development",
+    desc: "Custom-built high-performance websites for Indian startups and global businesses. We design and develop scalable, lightning-fast digital experiences optimized for performance, responsiveness, SEO, and long-term growth — engineered to handle traffic, conversions, and future expansion without compromise.",
+  },
+  {
+    icon: ShoppingBag,
+    title: "Ecommerce Solutions",
+    desc: "Conversion-focused eCommerce experiences for Indian and international brands. We build high-performing online storefronts with intuitive UX, seamless navigation, and optimized customer journeys — designed to increase engagement, boost sales, and turn visitors into loyal customers.",
+  },
+  {
+    icon: Palette,
+    title: "UI / UX Design",
+    desc: "Strategic UI/UX design systems rooted in user research and brand clarity. We craft scalable design systems and intuitive interfaces that combine aesthetics with usability — delivering consistent user experiences, stronger brand identity, and products users genuinely enjoy interacting with.",
+  },
+  {
+    icon: Search,
+    title: "SEO Optimization",
+    // FIX: removed duplicate 'T' from "TTechnical"
+    desc: "Technical SEO optimization from the ground up. We audit, fix, and future-proof your website's SEO — from structured data and Core Web Vitals to keyword strategy and content architecture. Rank higher on Google and get found by the right clients in India and globally.",
+  },
+  {
+    icon: AppWindow,
+    title: "Web Applications",
+    desc: "Enterprise-ready React web applications built in India. We develop scalable, production-grade React solutions with clean architecture, optimized performance, and maintainable codebases — built for reliability, long-term growth, and seamless user experiences across every device.",
+  },
+  {
+    icon: Wrench,
+    title: "Website Maintenance",
+    desc: "Reliable website maintenance, security, and performance management. We provide continuous monitoring, proactive updates, optimization, and advanced security protection — ensuring your website or application stays fast, secure, stable, and ready to scale at all times.",
+  },
+  {
+    icon: ImageIcon,
+    title: "Graphics Design",
+    desc: "Strategic branding and visual identity systems for modern businesses. We create cohesive brand assets, visual systems, and identity designs that establish recognition, communicate professionalism, and build a memorable presence across digital and print platforms.",
+  },
 ];
 
 export function Services() {
@@ -23,12 +52,13 @@ export function Services() {
         <div className="mb-16 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Services</span>
+            {/* FIX: Added "in India" for local SEO signal */}
             <h2 className="mt-3 max-w-2xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              Web Development & Design Services — Everything You Need, One Studio.
+              Web Development & Design Services in India — Everything You Need, One Studio.
             </h2>
           </div>
           <p className="max-w-md text-muted-foreground">
-            Hover or tap each node to explore what we do. Every service is delivered by a small, senior team.
+            Hover or tap each node to explore what we do. Every service is delivered by a small, senior team based in Ahmedabad, India.
           </p>
         </div>
 
@@ -38,10 +68,17 @@ export function Services() {
             <div className="absolute inset-0 rounded-full border border-border/70" />
             <div className="absolute inset-8 rounded-full border border-dashed border-border" />
             <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2">
-              {/* BUG FIX #1: Changed invalid h-65 w-65 to valid h-48 w-48 */}
-              {/* BUG FIX #1: Changed invalid shadow-accent/50 to valid shadow-lg */}
-              <div className="h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg" >
-              <a href="#home"><img src="https://res.cloudinary.com/dzijek1ob/image/upload/v1779195907/isctxp4bol34n6ufyukg.png" alt="Webrion logo" className="h-full w-full object-contain" /></a></div>
+              <div className="h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg">
+                <a href="#home">
+                  <img
+                    src="https://res.cloudinary.com/dzijek1ob/image/upload/v1779195907/isctxp4bol34n6ufyukg.png"
+                    alt="Webrion web development agency logo"
+                    className="h-full w-full object-contain"
+                    width={192}
+                    height={192}
+                  />
+                </a>
+              </div>
             </div>
 
             {services.map((s, i) => {
@@ -80,8 +117,17 @@ export function Services() {
               <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
                 {String(active + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
               </span>
-              <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">{services[active].title}</h3>
+              <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
+                {services[active].title}
+              </h3>
               <p className="mt-4 text-muted-foreground">{services[active].desc}</p>
+              {/* FIX: internal link from services to relevant project */}
+              <a
+                href="#projects"
+                className="mt-6 inline-flex items-center gap-1 text-sm text-accent hover:underline"
+              >
+                See related work →
+              </a>
             </motion.div>
 
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">

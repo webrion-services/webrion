@@ -31,7 +31,7 @@ const plans = [
       "Premium Conversion Optimization",
       "5 Rounds of Revisions",
       "5 Premium Promotion Posters",
-      "24/7 support",
+      "24/7 Support",
       "Source Code Delivery",
     ],
     cta: "Get Started Now",
@@ -43,7 +43,7 @@ const plans = [
     price: "₹ 14,999",
     period: "Flat Fee",
     blurb:
-      "Essential features for founders looking to validate their concept with a clean landing page.",
+      "Essential features for founders looking to launch with a clean, fast, and SEO-optimized website.",
     features: [
       "Up to 5 Pages",
       "100% Responsive Design",
@@ -57,12 +57,6 @@ const plans = [
   },
 ];
 
-function goToContact() {
-  document
-    .getElementById("contact")
-    ?.scrollIntoView({ behavior: "smooth", block: "start" });
-}
-
 export function Pricing() {
   return (
     <section id="pricing" className="relative px-6 py-32 md:px-12">
@@ -71,9 +65,15 @@ export function Pricing() {
           <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
             Pricing
           </span>
+          {/* FIX: H2 now includes keyword "Website Development Pricing in India" */}
           <h2 className="mt-3 text-4xl font-semibold tracking-tight md:text-6xl">
-            Transparent plans. No surprises.
+            Website Development Pricing in India — Transparent, No Surprises.
           </h2>
+          {/* FIX: Added supporting subtext with price anchor for long-tail keyword */}
+          <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+            All packages include source code delivery, responsive design, and SEO setup.
+            Starting at ₹14,999 for Indian startups and businesses.
+          </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -98,7 +98,8 @@ export function Pricing() {
               >
                 {p.price}
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">{p.blurb}</p>
+              <p className="mt-1 text-xs text-muted-foreground">{p.period}</p>
+              <p className="mt-3 text-sm text-muted-foreground">{p.blurb}</p>
               <ul className="mt-8 space-y-3 text-sm">
                 {p.features.map((f) => (
                   <li key={f} className="flex items-start gap-2">
@@ -120,6 +121,15 @@ export function Pricing() {
             </div>
           ))}
         </div>
+
+        {/* FIX: Added internal link to contact + brief trust note */}
+        <p className="mt-10 text-center text-sm text-muted-foreground">
+          Not sure which plan fits?{" "}
+          <a href="#contact" className="text-accent hover:underline">
+            Drop us a message
+          </a>{" "}
+          — we'll recommend the right scope for your project.
+        </p>
       </div>
     </section>
   );

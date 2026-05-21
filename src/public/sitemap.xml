@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
   <url>
     <loc>https://webrionservices.vercel.app/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <lastmod>2026-05-21</lastmod>
+    <image:image>
+      <image:loc>https://webrionservices.vercel.app/og-image.png</image:loc>
+      <image:title>Webrion — Web Development Agency in India</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779193916/khscgcyysrnstsv1afyc.png</image:loc>
+      <image:title>Scholar Allocation — PhD scholarship management portal</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192809/utxvb7ygokfftqxawn1g.png</image:loc>
+      <image:title>Threads and Things — Handmade crochet ecommerce platform</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192516/i9hzubmzspsfbihuyxis.png</image:loc>
+      <image:title>Brain Builder — Real-time multiplayer quiz game</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192442/rh8yrwpeyxtngqc89bjh.png</image:loc>
+      <image:title>Chat-Box — Encrypted real-time chat application</image:title>
+    </image:image>
   </url>
 </urlset>
