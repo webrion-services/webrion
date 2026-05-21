@@ -13,6 +13,7 @@ const links = [
   { id: "about", label: "About" },
   { id: "pricing", label: "Pricing" },
   { id: "contact", label: "Contact" },
+  { id: "FAQ", label: "FAQ" },
 ];
 
 function scrollTo(id: string) {

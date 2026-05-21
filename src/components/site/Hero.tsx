@@ -42,7 +42,7 @@ export function Hero() {
         <SplitReveal
           as="h1"
           delay={1.5}
-          text="Building modern websites that actually grow businesses."
+          text="High-Performance Websites & Web Applications Built for Growth"
           className="max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl lg:text-[88px]"
         />
 
@@ -52,8 +52,7 @@ export function Hero() {
           transition={{ delay: 2.4, duration: 0.7 }}
           className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg"
         >
-          Webrion creates fast, scalable, and visually stunning digital experiences
-          for startups, brands, and modern businesses.
+          Webrion is a modern web development agency specializing in custom websites, ecommerce platforms, SEO-focused business websites, and scalable web applications. We help startups, local businesses, and growing brands build fast, conversion-driven digital experiences using modern technologies like React, TypeScript, and optimized frontend architecture.
         </motion.p>
 
         <motion.div

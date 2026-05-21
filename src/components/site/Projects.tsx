@@ -8,7 +8,8 @@ const projects = [
     title: "Scholar Allocation",
     description: "A comprehensive scholarship portal designed for HNGU PhD scholars. Features include application management, status tracking, and resource allocation with an intuitive dashboard for seamless navigation.",
     tag: "University Level",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/v1779193916/khscgcyysrnstsv1afyc.png",
+    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779193916/khscgcyysrnstsv1afyc.png",
+    alter: "Custom scholarship management web application dashboard",
     link: "https://phd.dvthakkar.in",
     color: "#1e1b4b",
     textColor: "#f5f3ff",
@@ -19,7 +20,8 @@ const projects = [
     title: "Threads & Things",
     description: "An elegant e-commerce platform for handmade crochet goods. Features include AJAX cart functionality, wishlist management, product filtering, smooth checkout with real-time inventory updates.",
     tag: "Crochet Ecommerce",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/v1779192809/utxvb7ygokfftqxawn1g.png",
+    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192809/utxvb7ygokfftqxawn1g.png",
+    alter: "Fully functional e commerce platform",
     link: "https://threads-things.onrender.com/",
     color: "#7c2d12",
     textColor: "#fff7ed",
@@ -30,8 +32,9 @@ const projects = [
     title: "Brain Builder",
     description: "A real-time interactive quiz platform where users test their knowledge and compete with others. Features leaderboards, live scoring, multiple quiz categories, instant feedback with engaging animations.",
     tag: "Game Website",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/v1779192516/i9hzubmzspsfbihuyxis.png",
+    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192516/i9hzubmzspsfbihuyxis.png",
     link: "https://brain-builder.onrender.com/",
+    alter: "real time working game websie",
     color: "#064e3b",
     textColor: "#ecfdf5",
     techStack: ["Flask", "WebSockets", "Real-time DB", "Leaderboard"],
@@ -41,7 +44,8 @@ const projects = [
     title: "Chat-Box",
     description: "A secure real-time messaging application for private conversations. Includes end-to-end encryption, message history, user authentication, and responsive interface for seamless communication.",
     tag: "Real-time Chat App",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/v1779192442/rh8yrwpeyxtngqc89bjh.png",
+    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192442/rh8yrwpeyxtngqc89bjh.png",
+    alter: "quick message sharing platform",
     link: "https://chat-box-rhfp.onrender.com/",
     color: "#0c4a6e",
     textColor: "#f0f9ff",
@@ -140,7 +144,7 @@ export function Projects() {
                   <div className="aspect-square sm:aspect-video">
                     <img
                       src={projects[activeTab].src}
-                      alt={projects[activeTab].title}
+                      alt={projects[activeTab].alter}
                       className="h-full w-full object-cover"
                       loading="lazy"
                     />

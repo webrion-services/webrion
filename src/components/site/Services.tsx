@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { Code2, ShoppingBag, Palette, Search, AppWindow, Wrench, Image as ImageIcon } from "lucide-react";
 
 const services = [
-  { icon: Code2, title: "Custom Website Development", desc: "Hand-crafted, blazing-fast sites built for scale." },
-  { icon: ShoppingBag, title: "Ecommerce Solutions", desc: "Conversion-driven storefronts with elegant UX." },
-  { icon: Palette, title: "UI / UX Design", desc: "Design systems and interfaces with real craft." },
-  { icon: Search, title: "SEO Optimization", desc: "Technical SEO that actually moves rankings." },
-  { icon: AppWindow, title: "Web Applications", desc: "Production-grade React apps built to last." },
-  { icon: Wrench, title: "Website Maintenance", desc: "Continuous care, performance and security." },
-  { icon: ImageIcon, title: "Graphics Design", desc: "Visual systems, brand assets, and identities." },
+  { icon: Code2, title: "Custom Website Development", desc: "Custom-built high-performance websites. We design and develop scalable, lightning-fast digital experiences optimized for performance, responsiveness, SEO, and long-term growth — engineered to handle traffic, conversions, and future expansion without compromise." },
+  { icon: ShoppingBag, title: "Ecommerce Solutions", desc: "Conversion-focused eCommerce experiences. We build high-performing online storefronts with intuitive UX, seamless navigation, and optimized customer journeys — designed to increase engagement, boost sales, and turn visitors into loyal customers." },
+  { icon: Palette, title: "UI / UX Design", desc: "Strategic UI/UX design systems. We craft scalable design systems and intuitive interfaces that combine aesthetics with usability — delivering consistent user experiences, stronger brand identity, and products users genuinely enjoy interacting with." },
+  { icon: Search, title: "SEO Optimization", desc: "TTechnical SEO Optimization. We audit, fix, and future-proof your website's SEO — from structured data and Core Web Vitals to keyword strategy and content architecture. Rank higher and get found by the right clients." },
+  { icon: AppWindow, title: "Web Applications", desc: "Enterprise-ready React applications. We develop scalable, production-grade React solutions with clean architecture, optimized performance, and maintainable codebases — built for reliability, long-term growth, and seamless user experiences across every device." },
+  { icon: Wrench, title: "Website Maintenance", desc: "Reliable maintenance, security, and performance management. We provide continuous monitoring, proactive updates, optimization, and advanced security protection — ensuring your website or application stays fast, secure, stable, and ready to scale at all times." },
+  { icon: ImageIcon, title: "Graphics Design", desc: "Strategic branding and visual identity systems. We create cohesive brand assets, visual systems, and identity designs that establish recognition, communicate professionalism, and build a memorable presence across digital and print platforms." },
 ];
 
 export function Services() {
@@ -24,7 +24,7 @@ export function Services() {
           <div>
             <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">Services</span>
             <h2 className="mt-3 max-w-2xl text-4xl font-semibold leading-tight tracking-tight md:text-6xl">
-              An orbit of capabilities, one studio.
+              Web Development & Design Services — Everything You Need, One Studio.
             </h2>
           </div>
           <p className="max-w-md text-muted-foreground">

@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { SplitReveal } from "./SplitReveal";
 
 const milestones = [
-  { year: "Jan,26", label: "Webrion founded" },
-  { year: "Jeb,26", label: "First launch" },
-  { year: "Far,26", label: "Design system practice" },
-  { year: "Far,26", label: "Start services globally" },
+  { year: "Jan 2026", label: "Webrion founded" },
+  { year: "Feb 2026", label: "First client project launched" },
+  { year: "Mar 2026", label: "Design system practice established" },
+  { year: "Apr 2026", label: "Global services opened" },
 ];
 
 export function About() {

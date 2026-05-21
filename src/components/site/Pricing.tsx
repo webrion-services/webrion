@@ -22,7 +22,7 @@ const plans = [
   {
     name: "Professional",
     price: "₹ 24,999",
-    period: "Flat Fee",
+    period: "One-time payment",
     blurb:
       "The ultimate package for growing brands that want to dominate their market with a high-performance site.",
     features: [

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
-  { name: "Prof. Dr. Kishorkumar", role: "Head, HNGU", quote: "Webrion — a perfect combination of knowledge, coordination, and hard work." },
+  { name: "Prof. Dr. Kishorkumar", role: "Head, HNGU", quote: "Webrion reduced our page load time from 5.2s to 1.4s while redesigning our scholarship portal." },
   { name: "Priyanshi Shah", role: "CEO, Threads&things", quote: "They treated our brand like their own. The store finally feels editorial, not template." },
   { name: "Yug Patel", role: "Founder, Brain-Builder", quote: "Reservations, menus, — all of it landed beautifully. Users actually Enjoy the website." },
   { name: "Vishwa", role: "Co-founder, Chat-box", quote: "Maping-first Startup is hard. Webrion made it feel obvious." },

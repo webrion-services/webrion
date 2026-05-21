@@ -118,8 +118,7 @@ export function Footer() {
             </div>
 
             <p className="mt-6 text-sm leading-relaxed text-white/60">
-              Building premium digital experiences with cutting-edge design,
-              immersive interactions, and high-performance engineering.
+              Webrion is a web development studio based in Ahmedabad, India. We build custom websites, ecommerce platforms, and React web apps for startups and businesses worldwide. Starting at ₹14,999.
             </p>
 
             <div className="mt-8 flex gap-4">
@@ -148,8 +147,8 @@ export function Footer() {
 
             <FooterCol
               title="Work"
-              links={["Projects", "Services"]}
-              urls={["#projects", "#services"]}
+              links={["Projects", "Services","FAQ"]}
+              urls={["#projects", "#services","#FAQ"]}
             />
 
             <FooterCol
