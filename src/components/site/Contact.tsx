@@ -7,8 +7,8 @@ export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
 
   const socialLinks = [
-    { Icon: Instagram, url: "https://instagram.com/yourusername" },
-    { Icon: Linkedin, url: "https://linkedin.com/in/yourusername" },
+    { Icon: Instagram, url: "https://www.instagram.com/webrion.services?utm_source=qr" },
+    { Icon: Linkedin, url: "https://www.linkedin.com/in/webrion-services-697810410" },
     { Icon: Github, url: "https://github.com/webrion-services" },
   ];
 

@@ -3,7 +3,13 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { PixelHoverGrid } from "./PixelHoverGrid";
 import { SplitReveal } from "./SplitReveal";
 
-const LOGO_WITH_BG = "https://res.cloudinary.com/dzijek1ob/image/upload/v1779195783/daj2ioszyjfp9zxdumx4.jpg";
+function scrollTo(id: string, e: React.MouseEvent<HTMLAnchorElement>) {
+  e.preventDefault();
+  const el = document.getElementById(id);
+  if (!el) return;
+  history.pushState(null, "", `#${id}`);
+  el.scrollIntoView({ behavior: "smooth", block: "start" });
+}
 
 export function Hero() {
   return (
@@ -25,7 +31,6 @@ export function Hero() {
           A modern web development studio · est. 2026
         </motion.div>
 
-        {/* Logo with background in heading area */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -59,6 +64,7 @@ export function Hero() {
         >
           <a
             href="#contact"
+            onClick={(e) => scrollTo("contact", e)}
             className="magnetic group inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3.5 text-sm font-medium text-background transition hover:bg-accent hover:text-accent-foreground"
           >
             Start a Project
@@ -66,6 +72,7 @@ export function Hero() {
           </a>
           <a
             href="#projects"
+            onClick={(e) => scrollTo("projects", e)}
             className="magnetic group inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-6 py-3.5 text-sm font-medium backdrop-blur transition hover:border-accent"
           >
             View Portfolio

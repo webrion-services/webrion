@@ -23,20 +23,14 @@ function getRandomColor() {
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
-export const BoxesCore = ({
-  className,
-  ...rest
-}: {
-  className?: string;
-}) => {
+export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   const rows = new Array(80).fill(1);
   const cols = new Array(50).fill(1);
 
   return (
     <div
       style={{
-        transform:
-          "translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.7)",
+        transform: "translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.7)",
       }}
       className={cn(
         "absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-40",
@@ -101,8 +95,8 @@ export function Footer() {
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-black/60 to-black" />
 
       {/* Glow */}
-      <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-500/10 blur-3xl" />
-      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-fuchsia-500/10 blur-3xl" />
+      <div className="absolute left-0 top-0 h-80 w-85 rounded-full bg-accent/25 blur-3xl" />
+      <div className="absolute bottom-0 right-0 h-96 w-96 rounded-full bg-fuchsia-500/17 blur-3xl" />
 
       <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-16">
         {/* Top */}
@@ -111,8 +105,8 @@ export function Footer() {
           <div className="max-w-md">
             <div className="flex items-center gap-3">
               <span className="relative flex h-3 w-3">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
-                <span className="relative inline-flex h-3 w-3 rounded-full bg-cyan-400" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-accent" />
               </span>
 
               <h2
@@ -129,35 +123,53 @@ export function Footer() {
             </p>
 
             <div className="mt-8 flex gap-4">
-              <SocialLink label="Twitter" />
-              <SocialLink label="LinkedIn" />
-              <SocialLink label="Github" />
+              <SocialLink
+                label="Instagram"
+                link="https://www.instagram.com/webrion.services?utm_source=qr"
+              />
+
+              <SocialLink
+                label="LinkedIn"
+                link="https://www.linkedin.com/in/webrion-services-697810410"
+              />
+
+              <SocialLink label="GitHub" link="https://github.com/webrion-services" />
             </div>
           </div>
 
           {/* Links */}
           <div className="grid grid-cols-2 gap-12 sm:grid-cols-3">
+
             <FooterCol
-              title="Studio"
+              title="Section"
               links={["About", "Process", "Pricing"]}
+              urls={["#about", "#process", "#pricing"]}
             />
 
             <FooterCol
               title="Work"
-              links={["Projects", "Services", "Case Studies"]}
+              links={["Projects", "Services"]}
+              urls={["#projects", "#services"]}
             />
 
             <FooterCol
               title="Connect"
-              links={["Contact", "Twitter", "LinkedIn"]}
+              links={["Contact", "Instagram", "LinkedIn","Github"]}
+              urls={[
+                "#contact",
+                "https://www.instagram.com/webrion.services?utm_source=qr",
+                "https://www.linkedin.com/in/webrion-services-697810410",
+                "https://github.com/webrion-services"
+              ]}
             />
+
           </div>
         </div>
 
         {/* Bottom */}
         <div className="flex flex-col items-start justify-between gap-6 border-t border-white/10 pt-6 text-sm text-white/40 md:flex-row md:items-center">
           <p>
-            © {new Date().getFullYear()} Webrion Studio. All rights reserved.
+            © {new Date().getFullYear()} Webrion services. All rights reserved.
           </p>
 
           <a
@@ -179,9 +191,11 @@ export function Footer() {
 function FooterCol({
   title,
   links,
+  urls,
 }: {
   title: string;
   links: string[];
+  urls: string[];
 }) {
   return (
     <div>
@@ -190,15 +204,15 @@ function FooterCol({
       </div>
 
       <ul className="mt-5 space-y-3">
-        {links.map((link) => (
+        {links.map((link, index) => (
           <li key={link}>
             <a
-              href="#"
+              href={urls[index]}
               className="group relative inline-block overflow-hidden text-white/60 transition-colors duration-300 hover:text-white"
             >
               <span className="relative z-10">{link}</span>
 
-              <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-cyan-400 transition-all duration-300 group-hover:w-full" />
+              <span className="absolute bottom-0 left-0 h-[1px] w-0 bg-accent transition-all duration-300 group-hover:w-full" />
             </a>
           </li>
         ))}
@@ -207,10 +221,18 @@ function FooterCol({
   );
 }
 
-function SocialLink({ label }: { label: string }) {
+function SocialLink({
+  label,
+  link,
+}: {
+  label: string;
+  link: string;
+}) {
   return (
     <a
-      href="#"
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
       className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/60 transition-all duration-300 hover:border-cyan-400/30 hover:bg-cyan-400/10 hover:text-white"
     >
       {label}

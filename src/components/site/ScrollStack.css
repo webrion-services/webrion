@@ -1,10 +1,18 @@
 .scroll-stack-scroller {
   position: relative;
   width: 100%;
-  overflow-x: visible;
+  /* FIX: overflow-x: visible on mobile Safari causes repaint storms as the
+     browser tries to resolve scroll boundaries on a non-overflow container.
+     Use overflow: clip which prevents overflow painting without creating a
+     scroll container (unlike overflow: hidden which affects scroll chaining). */
+  overflow: clip;
   overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: auto;
+  /* Force GPU compositing layer — keeps transforms on the GPU and prevents
+     the CPU-side repaints that cause visible jitter on low-end mobile devices */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 .scroll-stack-inner {
@@ -16,7 +24,11 @@
   will-change: transform, opacity;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  /* No padding here — inner content card handles its own padding */
+  /* Promote each card to its own GPU compositing layer.
+     Without this, the browser composites all cards together and repaints the
+     entire stack on every scroll frame — visible as jitter on mobile. */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
   padding: 0;
   min-height: 0;
   width: 100%;
@@ -26,13 +38,14 @@
   box-sizing: border-box;
   position: relative;
   transition: none;
+  /* Prevent tap highlight flash on mobile which can appear as a visual glitch */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .scroll-stack-card[style*="opacity: 0"] {
   pointer-events: none;
 }
 
-/* End spacer — height is set dynamically by JS */
 .scroll-stack-end {
   width: 100%;
 }
@@ -42,6 +55,9 @@
   display: block;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  /* Prevent image subpixel rendering shifts during scale transforms on mobile */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
 }
 
 @media (max-width: 768px) {

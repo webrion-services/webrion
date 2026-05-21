@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const data = [
-  { name: "Prof. Dr. Kishorkumar", role: "Head, HNGU", quote: "Working with Webrion is a new experience — a perfect combination of knowledge, coordination, and hard work." },
+  { name: "Prof. Dr. Kishorkumar", role: "Head, HNGU", quote: "Webrion — a perfect combination of knowledge, coordination, and hard work." },
   { name: "Priyanshi Shah", role: "CEO, Threads&things", quote: "They treated our brand like their own. The store finally feels editorial, not template." },
   { name: "Yug Patel", role: "Founder, Brain-Builder", quote: "Reservations, menus, — all of it landed beautifully. Users actually Enjoy the website." },
-  { name: "Vishwa", role: "Co-founder, Chat-box", quote: "Map-first Startup is hard. Webrion made it feel obvious." },
+  { name: "Vishwa", role: "Co-founder, Chat-box", quote: "Maping-first Startup is hard. Webrion made it feel obvious." },
 ];
 
 export function Testimonials() {
@@ -34,7 +34,7 @@ export function Testimonials() {
               <blockquote className="text-2xl font-medium leading-snug tracking-tight md:text-3xl">
                 “{data[i].quote}”
               </blockquote>
-              <figcaption className="mt-8 flex items-center justify-center gap-3 text-sm text-muted-foreground">
+              <figcaption className="mt-8 flex items-start justify-center gap-3 text-sm text-muted-foreground">
                 <span>
                   <strong className="text-foreground">{data[i].name}</strong> · {data[i].role}
                 </span>

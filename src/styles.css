@@ -181,6 +181,9 @@
   opacity: 0; transition: opacity .35s ease;
   z-index: 1;
 }
+.glow-border::before {
+  pointer-events: none;
+}
 .glow-border:hover::after { opacity: 1; }
 
 /* Cursor */

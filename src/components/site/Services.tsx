@@ -38,8 +38,10 @@ export function Services() {
             <div className="absolute inset-0 rounded-full border border-border/70" />
             <div className="absolute inset-8 rounded-full border border-dashed border-border" />
             <div className="absolute inset-1/2 -translate-x-1/2 -translate-y-1/2">
-              <div className="h-65 w-65 -translate-x-1/2 -translate-y-1/2 rounded-full  shadow-accent/50" >
-              <a href="#home"><img src="https://res.cloudinary.com/dzijek1ob/image/upload/v1779195907/isctxp4bol34n6ufyukg.png" alt="" /></a></div>
+              {/* BUG FIX #1: Changed invalid h-65 w-65 to valid h-48 w-48 */}
+              {/* BUG FIX #1: Changed invalid shadow-accent/50 to valid shadow-lg */}
+              <div className="h-48 w-48 -translate-x-1/2 -translate-y-1/2 rounded-full shadow-lg" >
+              <a href="#home"><img src="https://res.cloudinary.com/dzijek1ob/image/upload/v1779195907/isctxp4bol34n6ufyukg.png" alt="Webrion logo" className="h-full w-full object-contain" /></a></div>
             </div>
 
             {services.map((s, i) => {
