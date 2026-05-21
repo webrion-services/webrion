@@ -1,173 +1,219 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
-    id: 1,
+    id: "01",
     title: "Scholar Allocation",
+    category: "University Platform",
     description:
-      "A comprehensive scholarship portal designed for HNGU PhD scholars. Features include application management, status tracking, and resource allocation with an intuitive dashboard for seamless navigation.",
-    tag: "University Level",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779193916/khscgcyysrnstsv1afyc.png",
-    // FIX: descriptive, keyword-rich alt text
-    alter: "PhD scholarship management portal with application tracking dashboard for HNGU university",
+      "A complete scholarship management system built for HNGU PhD scholars with dashboards, approvals, tracking, and administration workflows.",
+    image:
+      "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779379434/wzpnlqajajahyjwj459w.png",
     link: "https://phd.dvthakkar.in",
-    color: "#1e1b4b",
-    textColor: "#f5f3ff",
-    techStack: ["PHP", "MySQL", "JavaScript", "Admin Panel"],
+    tech: ["PHP", "MySQL", "Dashboard", "Admin"],
+    accent: "from-indigo-500/20 to-violet-500/5",
   },
   {
-    id: 2,
+    id: "02",
     title: "Threads & Things",
+    category: "Luxury Ecommerce",
     description:
-      "An elegant e-commerce platform for handmade crochet goods. Features include AJAX cart functionality, wishlist management, product filtering, smooth checkout with real-time inventory updates.",
-    tag: "Crochet Ecommerce",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192809/utxvb7ygokfftqxawn1g.png",
-    // FIX: removed vague "Fully functional e commerce platform"
-    alter: "Handmade crochet goods ecommerce store with AJAX cart, wishlist, and Stripe payment integration",
+      "Handcrafted crochet ecommerce experience with premium UI interactions, AJAX cart system, wishlist, and optimized shopping flow.",
+    image:
+      "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779192809/utxvb7ygokfftqxawn1g.png",
     link: "https://threads-things.onrender.com/",
-    color: "#7c2d12",
-    textColor: "#fff7ed",
-    techStack: ["Flask", "Jinja2", "AJAX", "Stripe Integration"],
+    tech: ["Flask", "Stripe", "AJAX", "Ecommerce"],
+    accent: "from-orange-500/20 to-amber-500/5",
   },
   {
-    id: 3,
+    id: "03",
     title: "Brain Builder",
+    category: "Interactive Quiz Platform",
     description:
-      "A real-time interactive quiz platform where users test their knowledge and compete with others. Features leaderboards, live scoring, multiple quiz categories, instant feedback with engaging animations.",
-    tag: "Game Website",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192516/i9hzubmzspsfbihuyxis.png",
+      "Real-time multiplayer quiz application with animated scoreboards, category battles, and competitive ranking systems.",
+    image:
+      "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779379237/dbdhtbcfpyx4rjwyk92n.png",
     link: "https://brain-builder.onrender.com/",
-    // FIX: removed typo "websie", replaced with descriptive alt
-    alter: "Real-time multiplayer quiz game website with live leaderboard and instant scoring",
-    color: "#064e3b",
-    textColor: "#ecfdf5",
-    techStack: ["Flask", "WebSockets", "Real-time DB", "Leaderboard"],
+    tech: ["Realtime", "Leaderboard", "Sockets", "Gaming"],
+    accent: "from-emerald-500/20 to-green-500/5",
   },
   {
-    id: 4,
-    title: "Chat-Box",
+    id: "04",
+    title: "Chat Box",
+    category: "Realtime Messaging",
     description:
-      "A secure real-time messaging application for private conversations. Includes end-to-end encryption, message history, user authentication, and responsive interface for seamless communication.",
-    tag: "Real-time Chat App",
-    src: "https://res.cloudinary.com/dzijek1ob/image/upload/w_800,f_webp,q_auto/v1779192442/rh8yrwpeyxtngqc89bjh.png",
-    // FIX: removed vague "quick message sharing platform"
-    alter: "Encrypted real-time chat application with OAuth authentication and PostgreSQL message history",
+      "Encrypted realtime chat platform with secure authentication, socket communication, persistent storage, and smooth messaging experience.",
+    image:
+      "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779192442/rh8yrwpeyxtngqc89bjh.png",
     link: "https://chat-box-rhfp.onrender.com/",
-    color: "#0c4a6e",
-    textColor: "#f0f9ff",
-    techStack: ["Flask", "Socket.io", "OAuth", "PostgreSQL"],
+    tech: ["Socket.io", "OAuth", "Realtime", "PostgreSQL"],
+    accent: "from-cyan-500/20 to-sky-500/5",
   },
 ];
 
 export function Projects() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActive((prev) => (prev + 1) % projects.length);
+    }, 7000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <section id="projects" className="relative overflow-hidden px-4 py-24 sm:px-6 md:px-12 md:py-32">
-      <div className="mx-auto max-w-7xl">
+    <section
+      id="projects"
+      className="relative overflow-hidden bg-background px-4 py-20 text-foreground sm:px-6"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute left-[-10%] top-[-20%] h-[300px] w-[300px] rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute bottom-[-20%] right-[-10%] h-[300px] w-[300px] rounded-full bg-primary/5 blur-3xl" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:mb-16 md:flex-row md:items-end">
+        <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <span className="text-xs uppercase tracking-[0.25em] text-muted-foreground">
-              Featured Work
+            <span className="mb-4 inline-block text-xs uppercase tracking-[0.35em] text-muted-foreground">
+              Featured Projects
             </span>
-            <h2 className="mt-3 max-w-2xl text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-6xl">
-              Selected projects, real outcomes.
+
+            <h2 className="max-w-4xl text-4xl font-black leading-[0.95] tracking-tight sm:text-6xl">
+              Crafting Digital
+              <br />
+              <span className="text-muted-foreground">
+                Experiences
+              </span>
             </h2>
           </div>
-          <a
-            href="#contact"
-            onClick={(e) => {
-              e.preventDefault();
-              const target = document.querySelector("#contact");
-              if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-              }
-            }}
-            className="group inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-5 py-2.5 text-sm font-medium backdrop-blur transition hover:border-accent"
-          >
-            Start a project
-            <ExternalLink className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
-          </a>
+
+          <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+            Modern projects designed with smooth interactions,
+            performance-focused layouts, and clean user experiences.
+          </p>
         </div>
 
-        {/* Tabs */}
-        <div className="mb-8 flex flex-wrap gap-2">
-          {projects.map((p, i) => (
+        {/* Main Showcase */}
+        <div className="relative overflow-hidden rounded-[28px] border border-border bg-card/70 md:backdrop-blur-md">
+          {/* Gradient */}
+          <div
+            className={`absolute inset-0 bg-gradient-to-br opacity-70 transition-all duration-500 ${projects[active].accent}`}
+          />
+
+          <div className="relative grid items-center gap-8 p-4 md:p-6 lg:grid-cols-[1fr_0.95fr] lg:p-8">
+            {/* Image */}
+            <div className="relative flex items-center justify-center overflow-hidden rounded-[22px] border border-border bg-background/40 min-h-[220px] sm:min-h-[300px] lg:min-h-[420px]">
+              <AnimatePresence initial={false} mode="wait">
+                <motion.img
+                  key={projects[active].image}
+                  src={projects[active].image}
+                  alt={projects[active].title}
+                  loading="lazy"
+                  decoding="async"
+                  initial={{
+                    opacity: 0,
+                    scale: 1.01,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                  }}
+                  exit={{
+                    opacity: 0,
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut",
+                  }}
+                  className="h-full w-full object-contain p-2 sm:p-4"
+                />
+              </AnimatePresence>
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col justify-center">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={projects[active].id}
+                  initial={{
+                    opacity: 0,
+                    y: 12,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: -12,
+                  }}
+                  transition={{
+                    duration: 0.4,
+                    ease: "easeOut",
+                  }}
+                >
+                  <span className="mb-3 inline-block text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+                    {projects[active].category}
+                  </span>
+
+                  <h3 className="text-3xl font-black leading-tight sm:text-5xl">
+                    {projects[active].title}
+                  </h3>
+
+                  <p className="mt-5 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+                    {projects[active].description}
+                  </p>
+
+                  {/* Tech */}
+                  <div className="mt-6 flex flex-wrap gap-2">
+                    {projects[active].tech.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-border bg-background/50 px-3 py-1.5 text-xs text-muted-foreground sm:text-sm"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <a
+                    href={projects[active].link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-7 inline-flex w-fit items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-opacity duration-300 hover:opacity-90"
+                  >
+                    Explore Project
+
+                    <ArrowUpRight className="h-4 w-4 opacity-80" />
+                  </a>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
+        </div>
+
+        {/* Navigation */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          {projects.map((project, index) => (
             <button
-              key={p.id}
-              onClick={() => setActiveTab(i)}
-              className={`rounded-full border px-4 py-1.5 text-sm transition ${
-                i === activeTab
-                  ? "border-accent bg-accent/10 text-accent"
-                  : "border-border text-muted-foreground hover:border-accent"
+              key={project.id}
+              onClick={() => setActive(index)}
+              className={`rounded-2xl border px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+                active === index
+                  ? "border-primary bg-primary text-primary-foreground"
+                  : "border-border bg-card/50 text-muted-foreground hover:border-primary/30"
               }`}
             >
-              {p.title}
+              {project.id}
             </button>
           ))}
         </div>
-
-        {/* Active project */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTab}
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -16 }}
-            transition={{ duration: 0.45 }}
-            className="grid gap-8 overflow-hidden rounded-3xl border border-border lg:grid-cols-2"
-            style={{ background: projects[activeTab].color }}
-          >
-            {/* Text */}
-            <div className="flex flex-col justify-center p-8 md:p-12" style={{ color: projects[activeTab].textColor }}>
-              <span className="text-xs uppercase tracking-[0.2em] opacity-60">{projects[activeTab].tag}</span>
-              <h3 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-                {projects[activeTab].title}
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed opacity-80">{projects[activeTab].description}</p>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {projects[activeTab].techStack.map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-white/20 px-3 py-1 text-xs opacity-70"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              <a
-                href={projects[activeTab].link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-8 inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-5 py-2.5 text-sm font-medium backdrop-blur transition hover:bg-white/20"
-                style={{ color: projects[activeTab].textColor }}
-              >
-                View Live Site
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            </div>
-
-            {/* Image */}
-            <div className="relative min-h-[280px] overflow-hidden">
-              <img
-                src={projects[activeTab].src}
-                // FIX: use descriptive alt from the project data
-                alt={projects[activeTab].alter}
-                className="h-full w-full object-cover object-top"
-                // FIX: explicit width/height prevents Cumulative Layout Shift (CLS)
-                width={800}
-                height={500}
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
-        </AnimatePresence>
       </div>
     </section>
   );
