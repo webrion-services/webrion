@@ -22,7 +22,7 @@ const schemaGraph = {
       "@id": "https://webrionservices.vercel.app/#business",
       "name": "Webrion",
       "url": "https://webrionservices.vercel.app",
-      "logo": "https://res.cloudinary.com/dzijek1ob/image/upload/v1779219614/zeooypgc3shssm8fkwov.png",
+      "logo": "https://webrionservices.vercel.app/favicon-512.png",
       "image": "https://webrionservices.vercel.app/og-image.png",
       "description": "Web development agency in Ahmedabad, India — custom websites, ecommerce platforms, React web apps, SEO optimization, and UI/UX design for startups and businesses worldwide.",
       "priceRange": "₹₹",
@@ -66,7 +66,7 @@ const schemaGraph = {
       "url": "https://webrionservices.vercel.app",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://res.cloudinary.com/dzijek1ob/image/upload/v1779219614/zeooypgc3shssm8fkwov.png",
+        "url": "https://webrionservices.vercel.app/favicon-512.png",
         "width": 512,
         "height": 512
       },
@@ -246,7 +246,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "keywords",
         content:
-          "web development agency India, custom website design Ahmedabad, React developer India, ecommerce website development India, SEO services India, web app development, website design agency Ahmedabad, hire React developer India",
+          "web development agency in India,web devlopment india, website development in ahmedabad,web design, best web developmet in india, custom website design Ahmedabad, React developer India, ecommerce website development India, SEO services India, web app development, website design agency Ahmedabad, hire React developer India",
       },
       { name: "author", content: "Webrion" },
       { name: "robots", content: "index, follow" },
@@ -284,32 +284,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      // FIX: correct MIME type (png, not jpeg)
-      {
-        rel: "icon",
-        href: "https://res.cloudinary.com/dzijek1ob/image/upload/v1779219614/zeooypgc3shssm8fkwov.png",
-        type: "image/png",
-      },
-      {
-        rel: "apple-touch-icon",
-        href: "https://res.cloudinary.com/dzijek1ob/image/upload/v1779219614/zeooypgc3shssm8fkwov.png",
-      },
+      // FIX: Local favicon files for Google Search logo visibility
+      { rel: "icon", href: "/favicon.ico", sizes: "any" },
+      { rel: "icon", href: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { rel: "icon", href: "/favicon-512.png", type: "image/png", sizes: "512x512" },
+      { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      // FIX: dns-prefetch before preconnect for faster resolution
+      { rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+      { rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
+      { rel: "dns-prefetch", href: "https://res.cloudinary.com" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      // FIX: preconnect Cloudinary for faster image loads
       { rel: "preconnect", href: "https://res.cloudinary.com" },
       { rel: "canonical", href: "https://webrionservices.vercel.app/" },
-      // FIX: removed invalid empty { rel: "preload" } that had no href or as
-      {
-        rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap",
-      },
+      // FIX: Font loading moved to non-render-blocking — using &display=swap
+      // and loaded via JS instead of a blocking <link> stylesheet
+      // The actual font link is injected below as a non-blocking script
     ],
-    // FIX: schema now injected as a real application/ld+json script tag
     scripts: [
       {
         type: "application/ld+json",
         children: JSON.stringify(schemaGraph),
+      },
+      // FIX: Load Google Fonts non-blocking to eliminate render-blocking resource
+      {
+        type: "text/javascript",
+        children: `
+          (function() {
+            var l = document.createElement('link');
+            l.rel = 'stylesheet';
+            l.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap';
+            document.head.appendChild(l);
+          })();
+        `,
       },
     ],
   }),

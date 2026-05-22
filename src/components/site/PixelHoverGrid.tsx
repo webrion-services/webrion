@@ -21,21 +21,32 @@ export function PixelHoverGrid({
   const [animating, setAnimating] = useState<Set<string>>(new Set());
   const [dims, setDims] = useState({ w: 0, h: 0 });
   const ref = useRef<HTMLDivElement>(null);
+  // FIX: debounce timer ref to prevent forced reflow on every resize event
+  const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!ref.current) return;
     const update = () => {
       if (!ref.current) return;
-      const r = ref.current.getBoundingClientRect();
-      setDims({ w: r.width, h: r.height });
+      // FIX: use offsetWidth/offsetHeight instead of getBoundingClientRect()
+      // to avoid forced reflow (layout thrashing)
+      setDims({ w: ref.current.offsetWidth, h: ref.current.offsetHeight });
     };
+
+    // FIX: Wrap ResizeObserver callback in rAF to batch layout reads
+    const ro = new ResizeObserver(() => {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(update);
+    });
+
     update();
-    const ro = new ResizeObserver(update);
     ro.observe(ref.current);
-    return () => ro.disconnect();
+    return () => {
+      ro.disconnect();
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
-  // Use a smaller effective gridSize on mobile so cells are thinner/more numerous
   const effectiveGridSize = dims.w < 768 ? Math.max(12, gridSize * 0.45) : gridSize;
   const cols = Math.max(6, Math.floor(dims.w / Math.max(8, dims.w / effectiveGridSize)));
   const rows = Math.max(6, Math.floor(dims.h / Math.max(8, dims.w / effectiveGridSize)));
@@ -78,6 +89,8 @@ export function PixelHoverGrid({
         display: "grid",
         gridTemplateColumns: `repeat(${cols}, 1fr)`,
         gridTemplateRows: `repeat(${rows}, 1fr)`,
+        // FIX: contain layout to prevent grid changes causing page-level reflow
+        contain: "layout style",
       }}
     >
       {pixels.map((p) => {

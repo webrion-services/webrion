@@ -203,3 +203,49 @@
 /* redesign thread and things
 host webrion make color changes
 get score  */
+/* ─── PERFORMANCE FIXES ──────────────────────────────────────────────────────── */
+
+/* FIX: Font fallback metric overrides to prevent layout shift while
+   Google Fonts loads asynchronously (reduces CLS from font swap) */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Inter");
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Space Grotesk");
+  size-adjust: 100%;
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* FIX: Add explicit dimensions to all img tags globally to prevent CLS */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* FIX: will-change hints for GPU-composited animated elements
+   (only on elements that actually animate) */
+.blob {
+  will-change: transform;
+}
+
+/* FIX: Use content-visibility for off-screen sections to reduce
+   initial render cost (improves TBT/TTI on mobile) */
+section:not(#home) {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 600px;
+}

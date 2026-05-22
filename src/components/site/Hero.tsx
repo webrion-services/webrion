@@ -24,42 +24,44 @@ export function Hero() {
       <div className="blob right-0 top-40 h-[360px] w-[360px] bg-primary/20" />
 
       <div className="relative mx-auto w-full max-w-7xl">
+        {/* FIX: Reduced animation delay from 1.5s to 0.2s — original delay was
+            the main LCP killer. The LoadingScreen handles the initial 1.4s,
+            after which content should appear immediately. */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.7 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1 text-xs text-muted-foreground backdrop-blur"
         >
           <span className="inline-block h-1.5 w-1.5 rounded-full bg-accent" />
-          {/* FIX: Added "Ahmedabad, India" for local SEO signal in visible text */}
           Web development studio · Ahmedabad, India · Est. 2026
         </motion.div>
 
+        {/* FIX: Reduced SplitReveal delay from 1.5s to 0.2s */}
         <SplitReveal
           as="h1"
-          delay={1.5}
+          delay={0.2}
           text="High-Performance Websites & Web Applications Built for Growth"
           className="max-w-5xl text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl lg:text-[88px]"
         />
 
+        {/* FIX: Reduced delay from 2.4s to 0.7s */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.4, duration: 0.7 }}
+          transition={{ delay: 0.7, duration: 0.7 }}
           className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg"
         >
-          {/* FIX: Rewritten — shorter, sharper, includes price anchor and location.
-              Original was generic AI-sounding boilerplate. This version is specific,
-              human, and contains the keywords users actually search for. */}
           We build custom websites, ecommerce stores, and React web apps for Indian startups and
           global brands — fast, conversion-focused, and starting at ₹14,999. Based in Ahmedabad,
           we ship like it's our own product.
         </motion.p>
 
+        {/* FIX: Reduced delay from 2.6s to 0.9s */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.6, duration: 0.7 }}
+          transition={{ delay: 0.9, duration: 0.7 }}
           className="mt-10 flex flex-wrap items-center gap-3"
         >
           <a
@@ -80,10 +82,11 @@ export function Hero() {
           </a>
         </motion.div>
 
+        {/* FIX: Reduced delay from 3s to 1.2s */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 3, duration: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
           className="absolute bottom-[-3rem] right-4 hidden flex-col items-center gap-2 text-xs uppercase tracking-[0.2em] text-muted-foreground md:flex"
         >
           <span>Scroll</span>

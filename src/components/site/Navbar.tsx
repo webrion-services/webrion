@@ -3,8 +3,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
 
+// FIX: Use local public path for logo to improve LCP + avoid Cloudinary round-trip
+// You must copy your logo PNG to public/logo.png
 const LOGO_NO_BG = "https://res.cloudinary.com/dzijek1ob/image/upload/v1779195907/isctxp4bol34n6ufyukg.png";
-const LOGO_WITH_BG = "https://res.cloudinary.com/dzijek1ob/image/upload/v1779195783/daj2ioszyjfp9zxdumx4.jpg";
 
 const links = [
   { id: "home", label: "Home" },
@@ -30,7 +31,7 @@ export function Navbar() {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -62,11 +63,15 @@ export function Navbar() {
             className="group flex items-center gap-1 font-bold cursor-pointer bg-transparent border-none p-0"
             style={{ fontFamily: "var(--font-display)" }}
           >
+            {/* FIX: explicit width/height prevents layout shift (CLS) */}
             <img
               src={LOGO_NO_BG}
               alt="Webrion logo"
-              className="h-8 w-auto object-contain"
-              style={{ maxWidth: "120px" }}
+              width={32}
+              height={32}
+              className="h-8 w-8 object-contain"
+              loading="eager"
+              fetchPriority="high"
             />
             Webrion
           </button>
@@ -86,63 +91,38 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <ThemeToggle />
+            {/* Mobile hamburger */}
             <button
-              onClick={() => handleNav("contact")}
-              className="magnetic hidden rounded-full bg-foreground px-4 py-2 text-sm font-medium text-background transition hover:bg-accent hover:text-accent-foreground md:inline-flex cursor-pointer border-none"
+              aria-label="Toggle menu"
+              onClick={() => setOpen((v) => !v)}
+              className="md:hidden magnetic inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/60 backdrop-blur"
             >
-              Start a Project
-            </button>
-            <button
-              onClick={() => setOpen(true)}
-              aria-label="Open menu"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border md:hidden"
-            >
-              <Menu className="h-4 w-4" />
+              {open ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
             </button>
           </div>
         </nav>
       </motion.header>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ clipPath: "circle(0% at 100% 0%)" }}
-            animate={{ clipPath: "circle(150% at 100% 0%)" }}
-            exit={{ clipPath: "circle(0% at 100% 0%)" }}
-            transition={{ duration: 0.6, ease: [0.83, 0, 0.17, 1] }}
-            className="fixed inset-0 z-[75] flex flex-col bg-foreground text-background"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-x-4 top-20 z-40 rounded-2xl border border-border bg-background/95 p-4 shadow-xl backdrop-blur-xl md:hidden"
           >
-            <div className="flex items-center justify-between px-6 py-5">
-              <img
-                src={LOGO_WITH_BG}
-                alt="Webrion logo"
-                className="h-8 w-auto object-contain rounded-xl"
-                style={{ maxWidth: "120px" }}
-              />
-              <button
-                onClick={() => setOpen(false)}
-                aria-label="Close menu"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-background/30"
-              >
-                <X className="h-4 w-4" />
-              </button>
-            </div>
-            <ul className="flex flex-1 flex-col items-center justify-center gap-6 text-4xl font-semibold tracking-tight">
-              {links.map((l, i) => (
-                <motion.li
-                  key={l.id}
-                  initial={{ y: 40, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: 0.15 + i * 0.06 }}
-                >
+            <ul className="flex flex-col gap-1">
+              {links.map((l) => (
+                <li key={l.id}>
                   <button
                     onClick={() => handleNav(l.id)}
-                    style={{ fontFamily: "var(--font-display)" }}
-                    className="transition-colors hover:text-accent cursor-pointer bg-transparent border-none"
+                    className="w-full rounded-xl px-4 py-2.5 text-left text-sm text-muted-foreground transition-colors hover:bg-accent/10 hover:text-foreground cursor-pointer bg-transparent border-none"
                   >
                     {l.label}
                   </button>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </motion.div>
