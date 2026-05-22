@@ -5,7 +5,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 // FIX: Use local public path for logo to improve LCP + avoid Cloudinary round-trip
 // You must copy your logo PNG to public/logo.png
-const LOGO_NO_BG = "https://res.cloudinary.com/dzijek1ob/image/upload/v1779195907/isctxp4bol34n6ufyukg.png";
+const LOGO_NO_BG = "/logo.png";
 
 const links = [
   { id: "home", label: "Home" },
