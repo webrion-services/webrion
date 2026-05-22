@@ -6,13 +6,30 @@ import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   plugins: [
-    TanStackRouterVite({ autoCodeSplitting: true }),
+    TanStackRouterVite({
+      autoCodeSplitting: true,
+    }),
     react(),
     tailwindcss(),
     tsconfigPaths(),
   ],
+
   build: {
     outDir: "dist",
     emptyOutDir: true,
+
+    cssCodeSplit: true,
+
+    chunkSizeWarningLimit: 600,
+
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ["react", "react-dom"],
+          motion: ["framer-motion"],
+          gsap: ["gsap"],
+        },
+      },
+    },
   },
 });
