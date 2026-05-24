@@ -3,6 +3,12 @@
  * Uses Lenis if available (required when Lenis smooth scroll is active),
  * otherwise falls back to native scrollIntoView.
  */
+declare global {
+  interface Window {
+    __lenis?: { scrollTo: (target: Element, opts?: { offset?: number }) => void };
+  }
+}
+
 export function scrollToSection(id: string) {
   const target = document.getElementById(id);
   if (!target) return;

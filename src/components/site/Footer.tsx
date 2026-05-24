@@ -5,90 +5,12 @@ import { motion } from "framer-motion";
 import React from "react";
 import { cn } from "@/lib/utils";
 
-/* ---------------- Background Grid ---------------- */
-
-const colors = [
-  "rgb(125 211 252)",
-  "rgb(249 168 212)",
-  "rgb(134 239 172)",
-  "rgb(253 224 71)",
-  "rgb(252 165 165)",
-  "rgb(216 180 254)",
-  "rgb(147 197 253)",
-  "rgb(165 180 252)",
-  "rgb(196 181 253)",
-];
-
-function getRandomColor() {
-  return colors[Math.floor(Math.random() * colors.length)];
-}
-
-export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
-  const rows = new Array(80).fill(1);
-  const cols = new Array(50).fill(1);
-
-  return (
-    <div
-      style={{
-        transform: "translate(-40%,-60%) skewX(-48deg) skewY(14deg) scale(0.7)",
-      }}
-      className={cn(
-        "absolute left-1/2 top-1/2 flex h-full w-full -translate-x-1/2 -translate-y-1/2 opacity-40",
-        className,
-      )}
-      {...rest}
-    >
-      {rows.map((_, i) => (
-        <motion.div
-          key={`row-${i}`}
-          className="relative h-8 w-16 border-l border-white/[0.05]"
-        >
-          {cols.map((_, j) => (
-            <motion.div
-              key={`col-${j}`}
-              whileHover={{
-                backgroundColor: getRandomColor(),
-                transition: { duration: 0 },
-              }}
-              animate={{
-                transition: { duration: 2 },
-              }}
-              className="relative h-8 w-16 border-r border-t border-white/[0.05]"
-            >
-              {j % 2 === 0 && i % 2 === 0 ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1"
-                  stroke="currentColor"
-                  className="pointer-events-none absolute -left-[22px] -top-[14px] h-6 w-10 text-white/[0.06]"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6v12m6-6H6"
-                  />
-                </svg>
-              ) : null}
-            </motion.div>
-          ))}
-        </motion.div>
-      ))}
-    </div>
-  );
-};
-
-export const Boxes = React.memo(BoxesCore);
-
-/* ---------------- Footer ---------------- */
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border bg-black px-6 py-20 text-white md:px-12">
       {/* Grid Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <Boxes />
       </div>
 
       {/* Gradient Overlay */}
@@ -137,28 +59,41 @@ export function Footer() {
           </div>
 
           {/* Links */}
-          <div className="grid grid-cols-2 gap-12 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-12 sm:grid-cols-4">
 
             <FooterCol
-              title="Section"
-              links={["About", "Process", "Pricing"]}
-              urls={["#about", "#process", "#pricing"]}
-            />
-
-            <FooterCol
-              title="Work"
-              links={["Projects", "Services","FAQ"]}
-              urls={["#projects", "#services","#faq"]}
-            />
-
-            <FooterCol
-              title="Connect"
-              links={["Contact", "Instagram", "LinkedIn","Github"]}
+              title="Services"
+              links={["Web Development", "SEO Services", "Ecommerce", "UI/UX Design", "Web Apps", "Maintenance"]}
               urls={[
-                "#contact",
+                "/services/web-development",
+                "/services/seo-services",
+                "/services/ecommerce-development",
+                "/services/ui-ux-design",
+                "/services/web-application-development",
+                "/services/website-maintenance",
+              ]}
+            />
+
+            <FooterCol
+              title="Company"
+              links={["About", "Portfolio", "Case Studies", "Contact"]}
+              urls={["/about", "/portfolio", "/case-studies", "/contact"]}
+            />
+
+            <FooterCol
+              title="Resources"
+              links={["Blog", "Pricing", "FAQ", "Process"]}
+              urls={["/blogs", "/#pricing", "/#faq", "/#process"]}
+            />
+
+            <FooterCol
+              title="Legal"
+              links={["Privacy Policy", "Terms & Conditions", "Instagram", "LinkedIn"]}
+              urls={[
+                "/privacy-policy",
+                "/terms-and-conditions",
                 "https://www.instagram.com/webrion.services?utm_source=qr",
                 "https://www.linkedin.com/in/webrion-services-697810410",
-                "https://github.com/webrion-services"
               ]}
             />
 

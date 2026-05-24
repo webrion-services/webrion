@@ -12,7 +12,7 @@ const projects = [
     image:
       "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779379434/wzpnlqajajahyjwj459w.png",
     link: "https://phd.dvthakkar.in",
-    tech: ["PHP", "MySQL", "Dashboard", "Admin"],
+    tech: ["PHP", "MySQL", "Javascript", "HTML/CSS","BootStrap"],
     accent: "from-indigo-500/20 to-violet-500/5",
   },
   {
@@ -24,7 +24,7 @@ const projects = [
     image:
       "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779192809/utxvb7ygokfftqxawn1g.png",
     link: "https://threads-things.onrender.com/",
-    tech: ["Flask", "Stripe", "AJAX", "Ecommerce"],
+    tech: ["Flask", "Stripe", "AJAX", "MYQSL","TailWind"],
     accent: "from-orange-500/20 to-amber-500/5",
   },
   {
@@ -36,7 +36,7 @@ const projects = [
     image:
       "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779379237/dbdhtbcfpyx4rjwyk92n.png",
     link: "https://brain-builder.onrender.com/",
-    tech: ["Realtime", "Leaderboard", "Sockets", "Gaming"],
+    tech: ["WebSocket", "FLASK", "PYTHON","OAuth", "JavaScript","TailWind"],
     accent: "from-emerald-500/20 to-green-500/5",
   },
   {
@@ -48,7 +48,7 @@ const projects = [
     image:
       "https://res.cloudinary.com/dzijek1ob/image/upload/w_1600,f_webp,q_auto/v1779192442/rh8yrwpeyxtngqc89bjh.png",
     link: "https://chat-box-rhfp.onrender.com/",
-    tech: ["Socket.io", "OAuth", "Realtime", "PostgreSQL"],
+    tech: ["Socket.io", "OAuth", "PYTHON","JavaScript","TailWind"],
     accent: "from-cyan-500/20 to-sky-500/5",
   },
 ];

@@ -67,55 +67,62 @@ const schemaGraph = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
-      "@id": "https://webrionservices.vercel.app/#business",
+      "@type": "ProfessionalService",
+      "@id": "https://webrionservices.vercel.app/#service",
       "name": "Webrion",
       "url": "https://webrionservices.vercel.app",
       "logo": "https://webrionservices.vercel.app/web-app-manifest-512x512.png",
       "image": "https://webrionservices.vercel.app/og-image.png",
-      "description": "Web development agency in Ahmedabad, India — custom websites, ecommerce platforms, React web apps, SEO optimization, and UI/UX design for startups and businesses worldwide.",
-      "priceRange": "₹₹",
+      "description": "Ahmedabad based web development and SEO agency providing website development, ecommerce development, UI UX design, SEO optimization and web application development services.",
       "telephone": "+91-96645-52301",
       "email": "webrionservices@gmail.com",
+      "priceRange": "₹₹",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Ahmedabad",
         "addressRegion": "Gujarat",
-        "postalCode": "380001",
-        "addressCountry": "IN"
+        "addressCountry": "India"
       },
-      "geo": { "@type": "GeoCoordinates", "latitude": 23.0225, "longitude": 72.5714 },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-        "opens": "09:00", "closes": "18:00"
-      },
-      "areaServed": ["IN", "US", "GB", "AU", "CA"],
+      "areaServed": [
+        "Ahmedabad",
+        "Gujarat",
+        "Surat",
+        "Patan",
+        "India",
+        "United States",
+        "United Kingdom",
+        "Canada",
+        "Australia"
+      ],
       "sameAs": [
         "https://www.instagram.com/webrion.services",
         "https://www.linkedin.com/in/webrion-services-697810410",
         "https://github.com/webrion-services"
+      ],
+      "serviceType": [
+        "Web Development",
+        "SEO Services",
+        "Ecommerce Development",
+        "UI UX Design",
+        "Website Maintenance",
+        "Web Application Development"
       ]
     },
     {
-      "@type": "Organization",
-      "@id": "https://webrionservices.vercel.app/#org",
-      "name": "Webrion",
+      "@type": "WebSite",
       "url": "https://webrionservices.vercel.app",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://webrionservices.vercel.app/web-app-manifest-512x512.png",
-        "width": 512, "height": 512
-      },
-      "foundingDate": "2026",
-      "description": "Web development studio in Ahmedabad, India"
+      "name": "Webrion",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://webrionservices.vercel.app/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
-      "@type": "WebSite",
-      "@id": "https://webrionservices.vercel.app/#website",
+      "@type": "Organization",
+      "name": "Webrion",
       "url": "https://webrionservices.vercel.app",
-      "name": "Webrion — Web Development Agency India",
-      "publisher": { "@id": "https://webrionservices.vercel.app/#org" }
+      "logo": "https://webrionservices.vercel.app/web-app-manifest-512x512.png"
     }
   ]
 };

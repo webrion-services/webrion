@@ -1,110 +1,86 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { lazy, Suspense } from "react";
-
 import { Navbar } from "@/components/site/Navbar";
 import { Hero } from "@/components/site/Hero";
+import { Stats } from "@/components/site/Stats";
+import { StoryScroll } from "@/components/site/StoryScroll";
+import { Services } from "@/components/site/Services";
+import { Projects } from "@/components/site/Projects";
+import { About } from "@/components/site/About";
+import { Process } from "@/components/site/Process";
+import { Testimonials } from "@/components/site/Testimonials";
+import { Pricing } from "@/components/site/Pricing";
+import { FAQ } from "@/components/site/FAQ";
+import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
-
-const Stats = lazy(() =>
-  import("@/components/site/Stats").then((m) => ({ default: m.Stats }))
-);
-
-const StoryScroll = lazy(() =>
-  import("@/components/site/StoryScroll").then((m) => ({
-    default: m.StoryScroll,
-  }))
-);
-
-const Services = lazy(() =>
-  import("@/components/site/Services").then((m) => ({
-    default: m.Services,
-  }))
-);
-
-const Projects = lazy(() =>
-  import("@/components/site/Projects").then((m) => ({
-    default: m.Projects,
-  }))
-);
-
-const About = lazy(() =>
-  import("@/components/site/About").then((m) => ({
-    default: m.About,
-  }))
-);
-
-const Process = lazy(() =>
-  import("@/components/site/Process").then((m) => ({
-    default: m.Process,
-  }))
-);
-
-const Testimonials = lazy(() =>
-  import("@/components/site/Testimonials").then((m) => ({
-    default: m.Testimonials,
-  }))
-);
-
-const Pricing = lazy(() =>
-  import("@/components/site/Pricing").then((m) => ({
-    default: m.Pricing,
-  }))
-);
-
-const FAQ = lazy(() =>
-  import("@/components/site/FAQ").then((m) => ({
-    default: m.FAQ,
-  }))
-);
-
-const Contact = lazy(() =>
-  import("@/components/site/Contact").then((m) => ({
-    default: m.Contact,
-  }))
-);
+import { SeoContentBlock } from "@/components/site/SeoContentBlock";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Webrion — Modern Web Development Studio" },
-      {
-        name: "description",
-        content:
-          "Webrion is a premium web development studio building fast, scalable and visually stunning websites and web apps for ambitious teams.",
-      },
-    ],
-  }),
+head: () => ({
+  meta: [
+    {
+      title:
+        "Web Development Company in Ahmedabad | SEO & Web Design Agency | Webrion",
+    },
+    {
+      name: "description",
+      content:
+        "Webrion is a web development company in Ahmedabad providing custom website development, ecommerce solutions, SEO optimization, UI UX design and scalable web application development across India.",
+    },
+    {
+      name: "keywords",
+      content:
+        "web development company Ahmedabad, SEO agency Ahmedabad, ecommerce development India, custom website development, React web development company, UI UX design agency India",
+    },
+    {
+      property: "og:title",
+      content:
+        "Web Development Company in Ahmedabad | Webrion",
+    },
+    {
+      property: "og:description",
+      content:
+        "Custom websites, ecommerce stores, SEO optimization and modern web applications for growing businesses.",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content: "https://webrionservices.vercel.app/og-image.png",
+    },
+    {
+      name: "twitter:card",
+      content: "summary_large_image",
+    },
+  ],
+  links: [
+    {
+      rel: "canonical",
+      href: "https://webrionservices.vercel.app/",
+    },
+  ],
+}),
   component: Index,
 });
-
-function Loader() {
-  return (
-    <div className="py-20 text-center text-sm opacity-60">
-      Loading...
-    </div>
-  );
-}
 
 function Index() {
   return (
     <main className="relative">
       <Navbar />
       <Hero />
-
-      <Suspense fallback={<Loader />}>
-        <Stats />
-        <StoryScroll />
-        <Services />
-        <Projects />
-        <About />
-        <Process />
-        <Testimonials />
-        <Pricing />
-        <FAQ />
-        <Contact />
-      </Suspense>
-
+      <Stats />
+      <StoryScroll />
+      <Services />
+      <Projects />
+      <About />
+      <Process />
+      <Testimonials />
+      <Pricing />
+      <FAQ />
+      <Contact />
       <Footer />
+      <SeoContentBlock />
     </main>
   );
 }

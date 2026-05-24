@@ -60,28 +60,6 @@
   --ring: oklch(0.72 0.18 55);
 }
 
-.dark {
-  --background: oklch(0.13 0.012 260);
-  --foreground: oklch(0.96 0.004 95);
-  --surface: oklch(0.17 0.014 260);
-  --ink: oklch(0.97 0.004 95);
-  --card: oklch(0.18 0.014 260);
-  --card-foreground: oklch(0.96 0.004 95);
-  --popover: oklch(0.18 0.014 260);
-  --popover-foreground: oklch(0.96 0.004 95);
-  --primary: oklch(0.96 0.004 95);
-  --primary-foreground: oklch(0.16 0.01 260);
-  --secondary: oklch(0.22 0.014 260);
-  --secondary-foreground: oklch(0.96 0.004 95);
-  --muted: oklch(0.22 0.014 260);
-  --muted-foreground: oklch(0.72 0.012 260);
-  --accent: oklch(46.77% 0.231 262.86);
-  --accent-foreground: oklch(0.13 0.012 260);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 14%);
-  --ring: oklch(0.78 0.18 60);
-}
-
 @layer base {
   * {
     border-color: var(--color-border);
@@ -249,3 +227,27 @@ section:not(#home) {
   content-visibility: auto;
   contain-intrinsic-size: 0 600px;
 }
+
+/* Lightweight JS-free animated grid background.
+   Replaces the heavy 400-cell framer-motion grid. Pure CSS = 0 JS cost. */
+.pixel-grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--foreground) 8%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 8%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-position: center center;
+  will-change: background-position;
+  animation: pixelGridDrift 40s linear infinite;
+  contain: strict;
+}
+@media (min-width: 768px) {
+  .pixel-grid-bg { background-size: 64px 64px; }
+}
+@keyframes pixelGridDrift {
+  from { background-position: 0 0; }
+  to   { background-position: 480px 480px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pixel-grid-bg { animation: none; }
+}
+

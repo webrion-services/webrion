@@ -40,7 +40,7 @@ const plans = [
   },
   {
     name: "Starter",
-    price: "₹ 14,999",
+    price: "₹ 12,999",
     period: "Flat Fee",
     blurb:
       "Essential features for founders looking to launch with a clean, fast, and SEO-optimized website.",
@@ -72,7 +72,7 @@ export function Pricing() {
           {/* FIX: Added supporting subtext with price anchor for long-tail keyword */}
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             All packages include source code delivery, responsive design, and SEO setup.
-            Starting at ₹14,999 for Indian startups and businesses.
+            Starting at ₹12,999 for Indian startups and businesses.
           </p>
         </div>
 

@@ -7,32 +7,52 @@ import { Plus } from "lucide-react";
 // can result in the rich snippet being suppressed.
 const faqs = [
   {
-    q: "What are typical project timelines?",
-    a: "Most landing pages ship in 1–2 weeks. Full marketing sites take 2–3 weeks. Web applications are scoped by sprint. Timelines are adjustable based on your requirements.",
+    q: "How much does a website cost in India?",
+    a: "Website pricing in India depends on the type of website, features, design quality, and development complexity. At Webrion, our Starter package starts from ₹12,999 for up to 5 pages. The Professional package is ₹24,999 for up to 15 pages with CMS integration and advanced SEO. Enterprise and custom web application pricing is quoted per project.",
   },
   {
-    q: "How much does a website cost in India?",
-    a: "Website pricing in India depends on the type of website, features, design quality, and development complexity. At Webrion, our Starter package starts from ₹14,999 for up to 5 pages. The Professional package is ₹24,999 for up to 15 pages with CMS integration and advanced SEO. Enterprise and custom web application pricing is quoted per project.",
+    q: "What does a digital marketing agency do?",
+    a: "A digital marketing agency handles the online growth of your business. Core services include SEO (search engine optimisation), PPC advertising (Google Ads, Meta Ads), social media marketing, content creation, web development, and conversion rate optimisation. Agencies combine these to drive traffic, generate leads, and grow revenue.",
+  },
+  {
+    q: "How much do SEO services cost in India?",
+    a: "SEO pricing in India typically follows two models. Monthly retainers range from ₹15,000 – ₹80,000 depending on scope, competition, and number of target keywords. Project-based SEO audits and one-time on-page work range from ₹10,000 – ₹60,000. At Webrion, our SEO retainer starts at ₹25,000/month with no lock-in contract.",
+  },
+  {
+    q: "How long until I see results from SEO?",
+    a: "Technical fixes — like crawl errors, slow page speed, and broken internal links — can show ranking improvements within 2–6 weeks. Content and authority building compounds over 3–6 months. Most clients see meaningful organic traffic growth by month 4–5. We're transparent about which work delivers what timeline.",
+  },
+  {
+    q: "Can I do SEO myself?",
+    a: "You can handle some SEO tasks yourself — publishing helpful content, setting up Google Search Console, and improving page titles. However, technical SEO (Core Web Vitals, schema markup, crawl budget, rendering) and competitive link strategy typically require specialist skills. DIY for content; hire an expert for technical and strategy.",
+  },
+  {
+    q: "Which social media platform is best for my business?",
+    a: "It depends on your audience. B2B companies typically get the best ROI from LinkedIn and Google Search. B2C brands with visual products do well on Instagram and Pinterest. Service businesses targeting local customers benefit from Facebook and Google Business Profile. We recommend auditing where your actual customers spend time before committing budget.",
+  },
+  {
+    q: "How do I measure SEO success?",
+    a: "The right metrics are: organic traffic (Google Analytics 4), keyword rankings (Search Console or a rank tracker), click-through rate from search, and — most importantly — conversions and revenue attributed to organic. Vanity metrics like domain authority are supplementary. We deliver a monthly Looker Studio dashboard covering all of these.",
+  },
+  {
+    q: "What is chatbot marketing and does it work?",
+    a: "Chatbot marketing uses automated conversational tools on your website or messaging platforms to qualify leads, answer FAQs, and book appointments — 24/7, without human input. When set up well, chatbots can cut response time from hours to seconds and increase qualified lead volume by 20–40%. They work best as a complement to, not replacement for, human follow-up.",
+  },
+  {
+    q: "Why is website speed important for my business?",
+    a: "Page speed affects both user experience and Google rankings. Google's Core Web Vitals (LCP, INP, CLS) are direct ranking factors. A 1-second delay in load time reduces conversions by roughly 7%. On mobile, users abandon pages that take more than 3 seconds to load. Every performance improvement has a measurable business impact.",
+  },
+  {
+    q: "What is Google Analytics and do I need it?",
+    a: "Google Analytics 4 (GA4) is a free tool that shows you who visits your website, where they come from, which pages they view, and whether they convert. Without it, you're making marketing decisions blindly. Yes, you need it — along with Google Search Console. Both are free and we set them up on every project we deliver.",
+  },
+  {
+    q: "What are typical project timelines?",
+    a: "Most landing pages ship in 1–2 weeks. Full marketing sites take 2–3 weeks. Web applications are scoped by sprint. SEO audits take 2 weeks; ongoing SEO is monthly. Timelines are always confirmed in writing before we start.",
   },
   {
     q: "Do you work with international clients?",
-    a: "Yes, we work with clients globally and provide complete remote collaboration for website design, development, branding, and digital solutions. We use professional communication and project management tools to ensure smooth workflow across different time zones.",
-  },
-  {
-    q: "Can you redesign my existing website?",
-    a: "Absolutely. We can redesign your existing website to improve its visual appearance, performance, user experience, mobile responsiveness, SEO structure, and conversion rate — while preserving important content and functionality.",
-  },
-  {
-    q: "How does pricing work?",
-    a: "Fixed-fee for defined scopes, monthly retainer for ongoing partnerships. We quote up-front with no hidden charges.",
-  },
-  {
-    q: "Do you offer website maintenance and support?",
-    a: "Yes — we offer monthly maintenance plans including uptime monitoring, performance tuning, security updates, content updates, and feature development.",
-  },
-  {
-    q: "Do you handle SEO?",
-    a: "Technical SEO is built into every project: semantic HTML, structured data markup, Core Web Vitals optimization, and XML sitemaps. Content SEO strategy and keyword targeting are also available as add-ons.",
+    a: "Yes — we work with clients globally and handle full remote collaboration for web design, development, SEO, and digital solutions. We use professional project management tools to ensure smooth workflow across time zones.",
   },
 ];
 

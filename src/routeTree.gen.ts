@@ -9,38 +9,275 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsAndConditionsRouteImport } from './routes/terms-and-conditions'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as PortfolioRouteImport } from './routes/portfolio'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as BlogsRouteImport } from './routes/blogs'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesWebsiteMaintenanceRouteImport } from './routes/services/website-maintenance'
+import { Route as ServicesWebDevelopmentRouteImport } from './routes/services/web-development'
+import { Route as ServicesWebApplicationDevelopmentRouteImport } from './routes/services/web-application-development'
+import { Route as ServicesUiUxDesignRouteImport } from './routes/services/ui-ux-design'
+import { Route as ServicesSeoServicesRouteImport } from './routes/services/seo-services'
+import { Route as ServicesEcommerceDevelopmentRouteImport } from './routes/services/ecommerce-development'
+import { Route as BlogsSlugRouteImport } from './routes/blogs.$slug'
 
+const TermsAndConditionsRoute = TermsAndConditionsRouteImport.update({
+  id: '/terms-and-conditions',
+  path: '/terms-and-conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortfolioRoute = PortfolioRouteImport.update({
+  id: '/portfolio',
+  path: '/portfolio',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogsRoute = BlogsRouteImport.update({
+  id: '/blogs',
+  path: '/blogs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesWebsiteMaintenanceRoute =
+  ServicesWebsiteMaintenanceRouteImport.update({
+    id: '/services/website-maintenance',
+    path: '/services/website-maintenance',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesWebDevelopmentRoute = ServicesWebDevelopmentRouteImport.update({
+  id: '/services/web-development',
+  path: '/services/web-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesWebApplicationDevelopmentRoute =
+  ServicesWebApplicationDevelopmentRouteImport.update({
+    id: '/services/web-application-development',
+    path: '/services/web-application-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ServicesUiUxDesignRoute = ServicesUiUxDesignRouteImport.update({
+  id: '/services/ui-ux-design',
+  path: '/services/ui-ux-design',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSeoServicesRoute = ServicesSeoServicesRouteImport.update({
+  id: '/services/seo-services',
+  path: '/services/seo-services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesEcommerceDevelopmentRoute =
+  ServicesEcommerceDevelopmentRouteImport.update({
+    id: '/services/ecommerce-development',
+    path: '/services/ecommerce-development',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const BlogsSlugRoute = BlogsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/portfolio': typeof PortfolioRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/services/ecommerce-development': typeof ServicesEcommerceDevelopmentRoute
+  '/services/seo-services': typeof ServicesSeoServicesRoute
+  '/services/ui-ux-design': typeof ServicesUiUxDesignRoute
+  '/services/web-application-development': typeof ServicesWebApplicationDevelopmentRoute
+  '/services/web-development': typeof ServicesWebDevelopmentRoute
+  '/services/website-maintenance': typeof ServicesWebsiteMaintenanceRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/portfolio': typeof PortfolioRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/services/ecommerce-development': typeof ServicesEcommerceDevelopmentRoute
+  '/services/seo-services': typeof ServicesSeoServicesRoute
+  '/services/ui-ux-design': typeof ServicesUiUxDesignRoute
+  '/services/web-application-development': typeof ServicesWebApplicationDevelopmentRoute
+  '/services/web-development': typeof ServicesWebDevelopmentRoute
+  '/services/website-maintenance': typeof ServicesWebsiteMaintenanceRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/blogs': typeof BlogsRouteWithChildren
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/portfolio': typeof PortfolioRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
+  '/terms-and-conditions': typeof TermsAndConditionsRoute
+  '/blogs/$slug': typeof BlogsSlugRoute
+  '/services/ecommerce-development': typeof ServicesEcommerceDevelopmentRoute
+  '/services/seo-services': typeof ServicesSeoServicesRoute
+  '/services/ui-ux-design': typeof ServicesUiUxDesignRoute
+  '/services/web-application-development': typeof ServicesWebApplicationDevelopmentRoute
+  '/services/web-development': typeof ServicesWebDevelopmentRoute
+  '/services/website-maintenance': typeof ServicesWebsiteMaintenanceRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/case-studies'
+    | '/contact'
+    | '/portfolio'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/blogs/$slug'
+    | '/services/ecommerce-development'
+    | '/services/seo-services'
+    | '/services/ui-ux-design'
+    | '/services/web-application-development'
+    | '/services/web-development'
+    | '/services/website-maintenance'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/case-studies'
+    | '/contact'
+    | '/portfolio'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/blogs/$slug'
+    | '/services/ecommerce-development'
+    | '/services/seo-services'
+    | '/services/ui-ux-design'
+    | '/services/web-application-development'
+    | '/services/web-development'
+    | '/services/website-maintenance'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/blogs'
+    | '/case-studies'
+    | '/contact'
+    | '/portfolio'
+    | '/privacy-policy'
+    | '/terms-and-conditions'
+    | '/blogs/$slug'
+    | '/services/ecommerce-development'
+    | '/services/seo-services'
+    | '/services/ui-ux-design'
+    | '/services/web-application-development'
+    | '/services/web-development'
+    | '/services/website-maintenance'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  BlogsRoute: typeof BlogsRouteWithChildren
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
+  PortfolioRoute: typeof PortfolioRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  TermsAndConditionsRoute: typeof TermsAndConditionsRoute
+  ServicesEcommerceDevelopmentRoute: typeof ServicesEcommerceDevelopmentRoute
+  ServicesSeoServicesRoute: typeof ServicesSeoServicesRoute
+  ServicesUiUxDesignRoute: typeof ServicesUiUxDesignRoute
+  ServicesWebApplicationDevelopmentRoute: typeof ServicesWebApplicationDevelopmentRoute
+  ServicesWebDevelopmentRoute: typeof ServicesWebDevelopmentRoute
+  ServicesWebsiteMaintenanceRoute: typeof ServicesWebsiteMaintenanceRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms-and-conditions': {
+      id: '/terms-and-conditions'
+      path: '/terms-and-conditions'
+      fullPath: '/terms-and-conditions'
+      preLoaderRoute: typeof TermsAndConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portfolio': {
+      id: '/portfolio'
+      path: '/portfolio'
+      fullPath: '/portfolio'
+      preLoaderRoute: typeof PortfolioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs': {
+      id: '/blogs'
+      path: '/blogs'
+      fullPath: '/blogs'
+      preLoaderRoute: typeof BlogsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +285,84 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/website-maintenance': {
+      id: '/services/website-maintenance'
+      path: '/services/website-maintenance'
+      fullPath: '/services/website-maintenance'
+      preLoaderRoute: typeof ServicesWebsiteMaintenanceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/web-development': {
+      id: '/services/web-development'
+      path: '/services/web-development'
+      fullPath: '/services/web-development'
+      preLoaderRoute: typeof ServicesWebDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/web-application-development': {
+      id: '/services/web-application-development'
+      path: '/services/web-application-development'
+      fullPath: '/services/web-application-development'
+      preLoaderRoute: typeof ServicesWebApplicationDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/ui-ux-design': {
+      id: '/services/ui-ux-design'
+      path: '/services/ui-ux-design'
+      fullPath: '/services/ui-ux-design'
+      preLoaderRoute: typeof ServicesUiUxDesignRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/seo-services': {
+      id: '/services/seo-services'
+      path: '/services/seo-services'
+      fullPath: '/services/seo-services'
+      preLoaderRoute: typeof ServicesSeoServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/ecommerce-development': {
+      id: '/services/ecommerce-development'
+      path: '/services/ecommerce-development'
+      fullPath: '/services/ecommerce-development'
+      preLoaderRoute: typeof ServicesEcommerceDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blogs/$slug': {
+      id: '/blogs/$slug'
+      path: '/$slug'
+      fullPath: '/blogs/$slug'
+      preLoaderRoute: typeof BlogsSlugRouteImport
+      parentRoute: typeof BlogsRoute
+    }
   }
 }
 
+interface BlogsRouteChildren {
+  BlogsSlugRoute: typeof BlogsSlugRoute
+}
+
+const BlogsRouteChildren: BlogsRouteChildren = {
+  BlogsSlugRoute: BlogsSlugRoute,
+}
+
+const BlogsRouteWithChildren = BlogsRoute._addFileChildren(BlogsRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  BlogsRoute: BlogsRouteWithChildren,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
+  PortfolioRoute: PortfolioRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
+  TermsAndConditionsRoute: TermsAndConditionsRoute,
+  ServicesEcommerceDevelopmentRoute: ServicesEcommerceDevelopmentRoute,
+  ServicesSeoServicesRoute: ServicesSeoServicesRoute,
+  ServicesUiUxDesignRoute: ServicesUiUxDesignRoute,
+  ServicesWebApplicationDevelopmentRoute:
+    ServicesWebApplicationDevelopmentRoute,
+  ServicesWebDevelopmentRoute: ServicesWebDevelopmentRoute,
+  ServicesWebsiteMaintenanceRoute: ServicesWebsiteMaintenanceRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
