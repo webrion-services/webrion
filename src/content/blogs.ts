@@ -48,7 +48,7 @@ export const blogPosts: BlogPost[] = [
           "These ranges reflect quotes we see from established agencies in Ahmedabad and Gandhinagar. Freelancer rates can be lower; multinational vendors with offshore teams in Gujarat typically run 2-3x higher.",
         ],
         list: [
-          "Static brochure site (5-8 pages): ₹14,999 – ₹60,000",
+          "Static brochure site (5-8 pages): ₹12,999 – ₹60,000",
           "Business website with CMS: ₹45,000 – ₹1,80,000",
           "Ecommerce store (Shopify/WooCommerce): ₹75,000 – ₹4,50,000",
           "Custom ecommerce platform: ₹3,50,000 – ₹15,00,000+",
@@ -91,7 +91,7 @@ export const blogPosts: BlogPost[] = [
         id: "how-webrion-prices",
         heading: "How Webrion structures pricing",
         paragraphs: [
-          "Our standard brochure builds start at ₹14,999 because we use a tight component library and ship on Vercel — there's no infrastructure padding. Custom builds are scoped in two-week sprints with milestone-based invoicing.",
+          "Our standard brochure builds start at ₹12,999 because we use a tight component library and ship on Vercel — there's no infrastructure padding. Custom builds are scoped in two-week sprints with milestone-based invoicing.",
           "You can see indicative pricing on our pricing section and request a fixed quote via the contact page.",
         ],
       },

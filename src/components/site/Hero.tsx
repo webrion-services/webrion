@@ -53,7 +53,7 @@ export function Hero() {
           className="mt-8 max-w-2xl text-base text-muted-foreground md:text-lg"
         >
           We build custom websites, ecommerce stores, and React web apps for Indian startups and
-          global brands — fast, conversion-focused, and starting at ₹14,999. Based in Ahmedabad,
+          global brands — fast, conversion-focused, and starting at ₹12,999. Based in Ahmedabad,
           we ship like it's our own product.
         </motion.p>
 

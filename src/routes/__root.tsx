@@ -154,7 +154,7 @@ function RootComponent() {
 
     // Meta tags
     const metas: [string, string, string][] = [
-      ["name", "description", "Webrion is a web development agency in Ahmedabad, India specializing in custom websites, ecommerce platforms, React web apps, SEO, and UI/UX design. Starting at ₹14,999."],
+      ["name", "description", "Webrion is a web development agency in Ahmedabad, India specializing in custom websites, ecommerce platforms, React web apps, SEO, and UI/UX design. Starting at ₹12,999."],
       ["name", "keywords", "web development agency India, custom website design Ahmedabad, React developer India, ecommerce website development India"],
       ["name", "author", "Webrion"],
       ["name", "robots", "index, follow"],
@@ -162,7 +162,7 @@ function RootComponent() {
       ["name", "geo.region", "IN-GJ"],
       ["name", "geo.placename", "Ahmedabad, Gujarat, India"],
       ["property", "og:title", "Webrion — Web Development Agency in India"],
-      ["property", "og:description", "Custom websites, ecommerce platforms & React web apps. Starting at ₹14,999."],
+      ["property", "og:description", "Custom websites, ecommerce platforms & React web apps. Starting at ₹12,999."],
       ["property", "og:type", "website"],
       ["property", "og:url", "https://webrionservices.vercel.app/"],
       ["property", "og:image", "https://webrionservices.vercel.app/og-image.png"],

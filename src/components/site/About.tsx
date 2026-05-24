@@ -51,7 +51,7 @@ export function About() {
             {/* FIX: Mission statement now includes target audience and value prop keywords */}
             <p className="mt-2 text-lg">
               Bring enterprise-grade web development to Indian startups and growing businesses —
-              at prices that actually make sense. Starting at ₹14,999.
+              at prices that actually make sense. Starting at ₹12,999.
             </p>
           </div>
         </div>
