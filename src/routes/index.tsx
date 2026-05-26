@@ -80,7 +80,6 @@ function Index() {
       <FAQ />
       <Contact />
       <Footer />
-      <SeoContentBlock />
     </main>
   );
 }
